@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CardsService } from './service/cards.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'ng2-blackjack';
+
+  constructor(private cardsService: CardsService) { }
+
+  ngOnInit() {
+  }
 }
