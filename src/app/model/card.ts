@@ -8,50 +8,59 @@ export class Card {
   }
 
   public toString(): string {
+    return this.getStringValue() + ' of ' + this.getStringColor();
+  }
+
+  public getStringValue(): string {
     let str: string = '';
 
     switch (this.value) {
       case 1:
-        str += 'Ace of ';
+        str += 'Ace';
         break;
       case 2:
-        str += 'Two of ';
+        str += 'Two';
         break;
       case 3:
-        str += 'Three of ';
+        str += 'Three';
         break;
       case 4:
-        str += 'Four of ';
+        str += 'Four';
         break;
       case 5:
-        str += 'Five of ';
+        str += 'Five';
         break;
       case 6:
-        str += 'Six of ';
+        str += 'Six';
         break;
       case 7:
-        str += 'Seven of ';
+        str += 'Seven';
         break;
       case 8:
-        str += 'Eight of ';
+        str += 'Eight';
         break;
       case 9:
-        str += 'Nine of ';
+        str += 'Nine';
         break;
       case 10:
-        str += 'Ten of ';
+        str += 'Ten';
         break;
       case 11:
-        str += 'Jack of ';
+        str += 'Jack';
         break;
       case 12:
-        str += 'Queen of ';
+        str += 'Queen';
         break;
       case 13:
-        str += 'King of ';
+        str += 'King';
         break;
     }
 
+    return str;
+  }
+
+  public getStringColor(): string {
+    let str: string = '';
     switch (this.color) {
       case 0:
         str += 'Hearts';
