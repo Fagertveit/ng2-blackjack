@@ -10,8 +10,9 @@ import { Deck } from '../../model/deck';
 export class GameComponent implements OnInit {
   public deck: Deck;
   public bank: Hand;
-  public player: Hand[] = [];
+  public player: Hand;
   public showResult: boolean = false;
+  public gameResult: string;
 
   constructor() { }
 
@@ -20,8 +21,11 @@ export class GameComponent implements OnInit {
   }
 
   public hitMe(): void {
-    for (let hand of this.player) {
-      hand.addCard(this.deck.getCard());
+    this.player.addCard(this.deck.getCard());
+
+    if (this.player.isBust) {
+      this.showResult = true;
+      this.gameResult = 'Player is bust';
     }
   }
 
@@ -32,6 +36,7 @@ export class GameComponent implements OnInit {
 
       if (this.bank.isBust) {
         bankTakesCard = false;
+        this.gameResult = 'House went bust!';
       }
 
       if (this.bank.getValue() > 16) {
@@ -39,17 +44,24 @@ export class GameComponent implements OnInit {
       }
     }
 
-    this.showResult = true;
-  }
+    if (!this.bank.isBust) {
+      if (this.bank.getValue() > this.player.getValue()) {
+        this.gameResult = 'House wins!';
+      } else if (this.bank.getValue() < this.player.getValue()){
+        this.gameResult = 'Player wins!';
+      } else {
+        this.gameResult = 'It\'s a tie!';
+      }
+    }
 
-  public splitHand(index: number): void {
-    this.player = [...this.player.splice(index, 1)[0].split()];
+    this.showResult = true;
   }
 
   public restart() {
     this.deck = new Deck();
     this.bank = new Hand(true);
-    this.player = [];
-    this.player.push(new Hand());
+    this.player = new Hand();
+    this.gameResult = '';
+    this.showResult = false;
   }
 }

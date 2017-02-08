@@ -41,6 +41,7 @@ export class Hand {
 
   public addCard(card: Card): void {
     this.cards.push(card);
+    this.calculateHand();
   }
 
   public canSplit(): boolean {

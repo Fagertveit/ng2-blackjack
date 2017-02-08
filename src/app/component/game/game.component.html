@@ -5,12 +5,15 @@
 <h1>Bank</h1>
 <app-hand [hand]="bank"></app-hand>
 <h1>Player</h1>
-<ul>
-  <li *ngFor="let hand of player">
-    <app-hand [hand]="hand"></app-hand>
-  </li>
-</ul>
+<app-hand [hand]="player"></app-hand>
 
-<button (click)="hitMe()">Hit me!</button>
-<button (click)="stop()">Stop</button>
-<button (click)="restart()">Restart</button>
+<div *ngIf="showResult">
+  <p>{{ gameResult }}</p>
+
+  <button (click)="restart()">Restart</button>
+</div>
+
+<div *ngIf="!showResult">
+  <button (click)="hitMe()">Hit me!</button>
+  <button (click)="stop()">Stop</button>
+</div>

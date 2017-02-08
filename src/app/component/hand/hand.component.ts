@@ -15,8 +15,4 @@ export class HandComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  public split() {
-    this.splitHand.emit(this.index);
-  }
 }
