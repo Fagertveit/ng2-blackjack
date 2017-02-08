@@ -94,7 +94,7 @@ export class Card {
   public getHighValue(): number {
     if (this.value > 9) {
       return 10;
-    } else if (this.value === 1) {
+    } else if (this.isAce()) {
       return 11;
     } else {
       return this.value;
@@ -104,7 +104,7 @@ export class Card {
   public getLowValue(): number {
     if (this.value > 9) {
       return 10;
-    } else if (this.value === 1) {
+    } else if (this.isAce()) {
       return 1;
     } else {
       return this.value;

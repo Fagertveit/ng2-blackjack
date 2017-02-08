@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Hand } from '../../model/hand';
 
 @Component({
@@ -8,8 +8,6 @@ import { Hand } from '../../model/hand';
 })
 export class HandComponent implements OnInit {
   @Input() hand: Hand;
-  @Input() index: number;
-  @Output() splitHand: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }
 
