@@ -4,16 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { BlackjackPipe } from './pipe/blackjack.pipe';
-
-import { CardsService } from './service/cards.service';
 import { GameComponent } from './component/game/game.component';
 import { HandComponent } from './component/hand/hand.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BlackjackPipe,
     GameComponent,
     HandComponent
   ],
@@ -22,7 +18,7 @@ import { HandComponent } from './component/hand/hand.component';
     FormsModule,
     HttpModule
   ],
-  providers: [CardsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
