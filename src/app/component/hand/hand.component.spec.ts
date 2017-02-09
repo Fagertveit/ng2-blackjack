@@ -4,6 +4,8 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { HandComponent } from './hand.component';
+import { Card } from '../../model/card';
+import { Hand } from '../../model/hand';
 
 describe('HandComponent', () => {
   let component: HandComponent;
@@ -19,6 +21,9 @@ describe('HandComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HandComponent);
     component = fixture.componentInstance;
+
+    let hand: Hand = new Hand();
+    component.hand = hand;
     fixture.detectChanges();
   });
 
